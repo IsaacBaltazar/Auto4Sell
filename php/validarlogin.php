@@ -18,12 +18,12 @@ if (empty($user) | empty($pass))
 
 
 
-		$sql="SELECT * FROM usuarios WHERE nombre = '$user' and contrasena = '$pass'";
+		$sql="SELECT * FROM usuarios WHERE correo = '$user' and contrasena = '$pass'";
 		$result = $mysqli->query($sql);
 		if ($row = $result->fetch_assoc()) 
 			{
                 
-                print "Bienvenido :D";
+                echo "Bienvenido :D";
 		 
 				//header();
 			}
