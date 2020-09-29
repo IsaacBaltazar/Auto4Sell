@@ -19,7 +19,7 @@
 			
 			if(mysqli_connect_error())
 			{
-				trigger_error("Fallo la conexion a MySQL: " . mysqli_connect_error(), E_USER_ERROR);
+				trigger_error("Fallo la conexion a MySQL: " . mysqli_connect_error(), E_USER_ERROR());
 			}
 		}
 

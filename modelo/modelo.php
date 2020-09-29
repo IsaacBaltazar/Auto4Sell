@@ -1,5 +1,5 @@
-
 <?php
+	
 	require_once("../controlador/conexión.php");
 	require_once("../controlador/controlador.php");
 	
@@ -39,32 +39,36 @@
 			return $resultado;
 		}
 
-		
+		function agregaUsuario ($params){
+			$error = "";
+			$valor = "";
+			$nombre=$params["nombre"];
+			$ape1=$params["ape1"];
+			$ape2=$params["ape2"];
+			$correo=$params["correo"];
+			$telefono=$params["telefono"];
+			$contrasena=$params["contrasena"];
 
-	}
+			print_r($params);
 
-	function agregarUsuario (){
-		$error = "";
-		$valor = "";
-
-		$nombre=$_POST['txtNom'];
-		$ape1=$_POST['txtApe1'];
-		$ape2=$_POST['txtApe2'];
-		$correo=$_POST['txtCorreo'];
-		$telefono=$_POST['txtTelefono'];
-		$contrasena=$_POST['txtpass2'];
-		
-		$query = "INSERT INTO usuarios(nombre,apellidos,correo,contrasena);
-		$query .= VALUES ('$nombre','$apellido','$correo','$contrasena')";
-
-			if(!empty( $nombre ) && !empty( $ape1 ) && !empty( $correo ) ){
-				if(! $this->conn->$query){
-					$error = 'Ocurrio un error ejecutando el query ['. $this->conn->error .']';
+			//INSERT INTO usuarios (nombre,apePat,apeMat,correo,tel,contrasena) VALUES ('Gerardo','Ramirez','Torres','Aaaaaa','4561295092','12345');
+			
+			$query = "INSERT INTO  `usuarios` (`nombre`, `apePat`, `apeMat`,`correo`, `tel`, `contrasena`)";
+			$query .= " VALUES ('".$nombre."', '".$ape1."', '".$ape2."', '".$correo."','".$telefono."', '".$contrasena."');";
+	
+				if(!empty( $nombre ) && !empty( $ape1 ) && !empty( $correo ) ){
+					if(!$this->conn->query($query)){
+						$error = 'Ocurrio un error ejecutando el query ['. $this->conn->error .']';
+					}
+					$valor = $this->conn->affected_rows;
 				}
-				$valor = $this->conn->affected_rows;
-			}
-		$resul[] = $valor;
-		$resul[] = $error;
-		return $resul;
-	}
+			$resul[] = $valor;
+			$resul[] = $error;
+			return $resul;
+		}
 		
+
+	}
+
+	
+?>
