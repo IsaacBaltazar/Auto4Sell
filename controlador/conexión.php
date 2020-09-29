@@ -1,12 +1,48 @@
 <?php
-    $mysqli = new mysqli("localhost", "root", "", "auto4sell");
+	//Datos de la conexión
+	define( "HOST",     "localhost" );
+	define( "USER",     "root" );
+	define( "PASSWORD", "" );
+	define( "DATABASE", "auto4sell" );	
+	
+	
+	
+	class Database 
+	{
+		private $_connection;
+		private static $_instance;
+		
+		//Establecer la conexión o indicar errores
+		private function __construct()
+		{
+			$this->_connection = new mysqli( HOST, USER, PASSWORD, DATABASE );
+			
+			if(mysqli_connect_error())
+			{
+				trigger_error("Fallo la conexion a MySQL: " . mysqli_connect_error(), E_USER_ERROR);
+			}
+		}
 
-    if($mysqli -> connect_errno){
-        echo "Falló la conexión con la BD" . 
-        $mysqli->connect_errno . "-----" . $mysqli->connect_error ;
-    }else{
-        echo "Conexión exitosa";
-    }
+		//Función para la instancia de la Base de Datos	
+		public static function getInstance()
+		{
+			if(!self::$_instance)
+			{	
+				self::$_instance = new self();
+			}
+			return self::$_instance;
+		}
 
-    return $mysqli;
+       //Función para retornar la conexión de la BD
+		public function getConnection()
+		{
+			
+			return $this->_connection;
+			
+		}
+	}
+  
 ?>
+
+
+

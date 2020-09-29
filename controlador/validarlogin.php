@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include('../conexión/conexión.php');
+include('../controlador/conexión.php');
 if (isset($_POST['login'])) {
 	//VARIABLES DEL USUARIO
 $user = $_POST['txtusuario'];

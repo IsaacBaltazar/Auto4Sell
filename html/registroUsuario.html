@@ -31,7 +31,7 @@
                 </header>
 
                 <!-- Formulario -->
-                <form action="../php/registrar.php" method="POST" onsubmit="verificarPasswords(); return false">
+                <form action="../controlador/guardarUsuario.php" method="POST">
                     <link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
                     <div class="login">
                         <div class="login-header">
@@ -40,14 +40,16 @@
                         <div class="login-form">
                             <h3>Nombre:</h3>
                             <input type="text" placeholder="Nombre" name="txtNom" required/><br>
-                            <h3>Apellidos:</h3>
-                            <input type="text" placeholder="Apellidos" name="txtApell" required/><br>
+                            <h3>Apellido Paterno:</h3>
+                            <input type="text" placeholder="Apellido Paterno" name="txtApe1" required/><br>
+                            <h3>Apellido Materno:</h3>
+                            <input type="text" placeholder="Apellido Materno" name="txtApe2" required/><br>
                             <h3>Correo Electrónico:</h3>
                             <input type="text" placeholder="Correo" name="txtCorreo" required/><br>
+                            <h3>Teléfono:</h3>
+                            <input type="text" placeholder="Teléfono" name="txtTel" required/><br>
                             <h3>Contraseña:</h3>
                             <input type="password" placeholder="Password" name="txtpass" id="pass1" required/><br>
-                            <h3>Vuelva a escribir su contraseña:</h3>
-                            <input type="password" placeholder="Vuelva a escribir su contraseña" name="txtpass2" id="pass2" required/><br>
                             <br>
                             <input type="submit" value="Registrarse"/>
                             <br>
