@@ -2,6 +2,10 @@
     @session_start();
     require_once("../modelo/modelo.php");
 
+    $pass=$_POST['txtpass'];
+
+    $passEncriptada = crypt($pass);
+
 
     $params = array(
             "nombre"=>$_POST['txtNom'],
@@ -9,7 +13,7 @@
             "ape2"=>$_POST['txtApe2'],
             "correo"=>$_POST['txtCorreo'],
             "telefono"=>$_POST['txtTel'],
-            "contrasena"=>$_POST['txtpass'],
+            "contrasena"=>$passEncriptada,
     );
 
     
