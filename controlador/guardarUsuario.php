@@ -4,7 +4,7 @@
 
     $pass=$_POST['txtpass'];
 
-    $passEncriptada = crypt($pass);
+    $passEncriptada = md5($pass);
 
 
     $params = array(

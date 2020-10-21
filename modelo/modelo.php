@@ -66,7 +66,31 @@
 			$resul[] = $error;
 			return $resul;
 		}
-		
+
+		function validaUsuario ($params) {
+			$error = "";
+			$valor = "";
+			$user = $params['user'];
+			$pass = $params['pass'];
+
+			$query = "SELECT * FROM usuarios WHERE correo = '".$user."' AND contrasena = '".$pass."';";
+
+			$resultado = mysqli_query($this->$conn, $query);
+			if(mysqli_num_rows($resultado) !=0)  {
+				$valor = "OK";
+				session_start();
+				$_SESSION["logueado"] = TRUE;
+				
+				while($row = mysqli_fetch_array($resultado)){
+					$_SESSION["nombre"] = $row['nombre'];
+					$_SESSION["correo"] = $row['usuario'];
+				}
+			}
+
+			$resul[] = $valor;
+			$resul[] = $error;
+			return $resul;
+		}
 
 	}
 
