@@ -26,3 +26,4 @@
         window.location.href='../html/homePageR.php';
         </script>";
     }
+?>
