@@ -1,15 +1,15 @@
 <?php
-    ##require_once("../controlador/controlador.php");
-    ##session_start();
+    require_once("../controlador/controlador.php");
+    @session_start();
     
-    ##if(isset($_SESSION['usuario'])){
-     ##   $nombreU=$_SESSION['usuario'];
-    ##}else{
-    ##    session_destroy();
-    ##    echo"<script>alert('No has iniciado sesión');
-    ##    window.location.href='../html/login.html';
-    ##    </script>";
-    ##}
+    if(isset($_SESSION['usuario'])){
+       $nombreU=$_SESSION['usuario'];
+    }else{
+        session_destroy();
+        echo"<script>alert('No has iniciado sesión');
+        window.location.href='../html/login.html';
+        </script>";
+    }
 
 
 ?>

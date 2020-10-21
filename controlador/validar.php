@@ -7,8 +7,8 @@
     $passencriptada = md5($pass);
 
     $params = array(
-        "user"=>$_POST['txtusuario'],
-        "pass"=>$passencriptada,
+        "user1"=>$_POST['txtusuario'],
+        "pass1"=>$passencriptada,
 
     );
 
@@ -23,6 +23,6 @@
         </script>";
     } else {
         echo"<script>alert('Bienvenido');
-        window.location.href='../html/homePageR.html';
+        window.location.href='../html/homePageR.php';
         </script>";
     }
