@@ -1,9 +1,17 @@
 <?php
     require_once("../controlador/controlador.php");
     @session_start();
+
+    
     
     if(isset($_SESSION['usuario'])){
+
        $nombreU=$_SESSION['usuario'];
+       $id = $_SESSION['id'];
+
+        //print_r($id); die();
+
+       list($nombre,$ApelPat,$ApelMat,$correo,$tel,$password) = perfil($id);
     }else{
         session_destroy();
         echo"<script>alert('No has iniciado sesión');
@@ -14,7 +22,6 @@
 
 ?>
 
-
 <html>
 
 <head>
@@ -22,6 +29,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/estiloLogin.css" />
 </head>
 
 <body class="is-preload">
@@ -35,9 +43,9 @@
 
                 <!-- Header -->
                 <header id="header">
-                    <a href="index.html" class="logo"><strong>Auto4Sell</strong></a>
+                    <a href="../index.html" class="logo"><strong>Auto4Sell</strong></a>
                     <ul class="icons">
-                        <li><a href="../controlador/conexión.php" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="/controlador/conexión.php" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
                         <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
                         <li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
                         <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
@@ -45,59 +53,31 @@
                     </ul>
                 </header>
 
-                <!-- Banner -->
-                <section id="banner">
-                    <div class="content">
-                        <header>
-                            <h1>Buen día <br/> <?php echo $nombreU; ?> <strong>Bienvenido a</strong><br /> Auto4Sell</h1>
-                            <p>Su sitio de compra-venta de autos</p>
-                        </header>
-                        <p>Este mensaje sólo se puede ver si accediste como usuario.</p>
-                        <ul class="actions">
-                            <!--<li><a href="html/registroUsuario.html" class="button big">Registrarse</a></li>-->
-                        </ul>
+                <!-- Formulario -->
+                <form action="../controlador/modifUsuario.php" method="POST">
+                    <link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+                    <div class="login">
+                        <div class="login-header">
+                            <h2>Mi Perfil</h2>
+                        </div>
+                        <div class="login-form">
+                            <h3>Nombre:</h3>
+                            <input type="text" placeholder="Nombre" name="txtNom" id="nombre" value = "<?php echo"$nombre"?>" required/><br>
+                            <h3>Apellido Paterno:</h3>
+                            <input type="text" placeholder="Apellido Paterno" name="txtApe1" id="ApelPat" value = "<?php echo"$ApelPat"?>"/><br>
+                            <h3>Apellido Materno:</h3>
+                            <input type="text" placeholder="Apellido Materno" name="txtApe2" id="ApelMat" value = "<?php echo"$ApelMat"?>"/><br>
+                            <h3>Correo Electrónico:</h3>
+                            <input type="text" placeholder="Correo" name="txtCorreo" id="correo" value = "<?php echo"$correo"?>" readonly/><br>
+                            <h3>Teléfono:</h3>
+                            <input type="text" placeholder="Teléfono" name="txtTel" id="tel" value = "<?php echo"$tel"?>"/><br>
+                            <h3>Contraseña:</h3>
+                            <input type="password" placeholder="Password" name="txtpass" id="password" id="pass1" value = "<?php echo"$password"?>"/><br>
+                            <br>
+                            <input type="submit" value="Guardar Cambios" />
+                        </div>
                     </div>
-                    <span class="image object">
-										<img src="../images/imgPrincipal.jpg" alt="" />
-									</span>
-                </section>
-
-                <!-- Section -->
-                <section>
-                    <header class="major">
-                        <h2>Te ofrecemos</h2>
-                    </header>
-                    <div class="features">
-                        <article>
-                            <span class="icon fa-gem"></span>
-                            <div class="content">
-                                <h3>La mejor calidad en autos</h3>
-                                <p>Queremos ofrecerte los autos en mejores condiciones y con los mejores cuidados. Para ello tenemos a los mejores técnicos y mecánicos.</p>
-                            </div>
-                        </article>
-                        <article>
-                            <span class="icon solid fa-paper-plane"></span>
-                            <div class="content">
-                                <h3>Autos importados</h3>
-                                <p>Además de contar con un gran catálogo de autos nacionales, estamos en constante actualización para ofrecer lo mejor en el mercado global.</p>
-                            </div>
-                        </article>
-                        <article>
-                            <span class="icon solid fa-rocket"></span>
-                            <div class="content">
-                                <h3>Más que un auto</h3>
-                                <p>Sabemos que al elegir tu próximo vehículo no solo lo buscas por su utilidad, ayudamos a crear ese vinculo entre máquina y hombre</p>
-                            </div>
-                        </article>
-                        <article>
-                            <span class="icon solid fa-signal"></span>
-                            <div class="content">
-                                <h3>Somos los mejores</h3>
-                                <p>Nuestros clientes, promociones y prestigio hablan de la calidad y buen trato que tenemos para ti.</p>
-                            </div>
-                        </article>
-                    </div>
-                </section>
+                </form>
             </div>
         </div>
 
@@ -118,7 +98,7 @@
                         <h2>Menu</h2>
                     </header>
                     <ul>
-                        <li><a href="homePageR.php">Inicio</a></li>
+                    <li><a href="homePageR.php">Inicio</a></li>
                         <li>
                             <span class="opener">Categorias</span>
                             <ul>
@@ -139,14 +119,8 @@
                         </li>
                         <li><a href="#">Etiam Dolore</a></li>
                         <li><a href="#">Adipiscing</a></li>
-                        
                     </ul>
                 </nav>
-
-                
-
-                
-
                 <!-- Footer -->
                 <footer id="footer">
                     <p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>

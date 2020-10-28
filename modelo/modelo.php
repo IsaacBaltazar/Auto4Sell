@@ -84,9 +84,47 @@
 				while($row = mysqli_fetch_array($resultado)){
 					$_SESSION["nombre"] = $row['nombre'];
 					$_SESSION["usuario"] = $row['correo'];
+					$_SESSION["id"] = $row['idUsuario'];
 				}
 			}
 
+			$resul[] = $valor;
+			$resul[] = $error;
+			return $resul;
+		}
+
+		function datosPerfil($id){
+			$query = "SELECT * FROM usuarios WHERE idUsuario = ".$id;
+			$resultado = mysqli_query($this->conn, $query);
+			if(!$resultado){
+				$error = 'MySQL Error: ' . mysqli_connect_error();
+			}
+			return $resultado;
+		}
+
+		function modificaUsuario ($params){
+			$error = "";
+			$valor = "";
+			$nombre=$params["nombre"];
+			$ape1=$params["ape1"];
+			$ape2=$params["ape2"];
+			$correo=$params["correo"];
+			$telefono=$params["telefono"];
+			$contrasena=$params["contrasena"];
+
+			
+
+			//INSERT INTO usuarios (nombre,apePat,apeMat,correo,tel,contrasena) VALUES ('Gerardo','Ramirez','Torres','Aaaaaa','4561295092','12345');
+			
+			
+			$query = "UPDATE usuarios SET nombre ='".$nombre."',apePat='".$ape1."',apeMat='".$ape2."',tel='".$telefono."',contrasena='".$contrasena."' WHERE correo='".$correo."'";
+	
+				if(!empty( $nombre ) && !empty( $ape1 ) && !empty( $correo ) ){
+					if(!$this->conn->query($query)){
+						$error = 'Ocurrio un error ejecutando el query ['. $this->conn->error .']';
+					}
+					$valor = $this->conn->affected_rows;
+				}
 			$resul[] = $valor;
 			$resul[] = $error;
 			return $resul;
