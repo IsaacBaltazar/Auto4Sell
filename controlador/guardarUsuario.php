@@ -26,7 +26,18 @@
     //Llamar a la función 'agregaUsuario' que se encuentra en el modelo
     list ($valor, $error) = $sesion->agregaUsuario ($params);
     if( empty($valor) ){
-        if( !empty( $error ) ) $_SESSION["error"] = $error;
+        if($error == "d"){
+            echo"<script>alert('Correo duplicado, vuelva a intentar');
+            history.go(-1);
+            </script>";
+        }else{
+            echo "<script>alert('Ocurrió un error al hacer el registro')
+             window.location.href='../html/login.html'
+             </script>";
+
+        }
+
+        
     } else {
         echo "<script>alert('Su usuario fue registrado exitosamente')
              window.location.href='../html/login.html'

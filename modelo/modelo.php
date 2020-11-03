@@ -49,9 +49,12 @@
 			$telefono=$params["telefono"];
 			$contrasena=$params["contrasena"];
 
-			print_r($params);
 
-			//INSERT INTO usuarios (nombre,apePat,apeMat,correo,tel,contrasena) VALUES ('Gerardo','Ramirez','Torres','Aaaaaa','4561295092','12345');
+			$sqlValidar = "SELECT * FROM usuarios WHERE correo = '".$correo."' ";
+			$resultado = mysqli_query($this->conn, $sqlValidar);
+			if(mysqli_num_rows($resultado) !=0)  {
+				$error ="d";
+			}else{
 			
 			$query = "INSERT INTO  `usuarios` (`nombre`, `apePat`, `apeMat`,`correo`, `tel`, `contrasena`)";
 			$query .= " VALUES ('".$nombre."', '".$ape1."', '".$ape2."', '".$correo."','".$telefono."', '".$contrasena."');";
@@ -62,6 +65,7 @@
 					}
 					$valor = $this->conn->affected_rows;
 				}
+			}
 			$resul[] = $valor;
 			$resul[] = $error;
 			return $resul;
