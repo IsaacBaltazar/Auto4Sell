@@ -128,6 +128,7 @@
                                 <li><a href="#">Suburbanos</a></li>
                                 <li><a href="#">Clasicos con estilo</a></li>
                                 <li><a href="#">Compactos</a></li>
+                                <li><a href="autosReg.php">Autos registrados</a></li>
                             </ul>
                         </li>
                         <li>

@@ -19,11 +19,11 @@
 		$tblmain = "";
 		foreach ($datos as $filas) {
 			$tblmain .= "<tr class='text-center'>\n";
-			$tblmain .= "<td>". $filas['autos'] . "</td>\n";
 			$tblmain .= "<td>". $filas['modelo'] . "</td>\n";
+			$tblmain .= "<td>". $filas['año'] . "</td>\n";
 			$tblmain .= "<td>". $filas['bandera'] . "</td>\n";
-			$tblmain .= "<tr class='text-center'><a>Modificar</a> \n";
-			$tblmain .= "<tr class='text-center'><a>Eliminar</a> \n";
+			$tblmain .= "<td class='text-center'><img src='https://img.icons8.com/material-rounded/24/000000/correct-document.png'/></td> \n";
+			$tblmain .= "<td class='text-center'><img src='https://img.icons8.com/metro/26/000000/erase.png'/></td> \n";
 			$tblmain .= "</tr>";
 		}
 		return $tblmain;

@@ -50,22 +50,23 @@
                 </header>
 
                 <!-- Formulario -->
-                <button role="link" onclick="window.location='autos.php'">Agregar Auto</button>
-                <br>
+                
+                
                 <table class="table">
                     <thead>
                         <tr class="" style="background: #C0FGF0; color:#000;">
                             <th class="text-center">Modelo</th>
                             <th class="text-center">Año</th>
-                            <th class="text-center">Modelo</th>
+                            <th class="text-center">Disponible</th>
                             <th class="text-center">Modificar</th>
                             <th class="text-center">Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php echo ?>
+                        <?php echo $aAutos;?>
                     </tbody>
                 </table>
+                <button class="" role="link" onclick="window.location='autos.php'">Agregar Auto</button>
 
 
 
@@ -101,6 +102,7 @@
                                 <li><a href="#">Suburbanos</a></li>
                                 <li><a href="#">Clasicos con estilo</a></li>
                                 <li><a href="#">Compactos</a></li>
+                                <li><a href="autosReg.php">Autos registrados</a></li>
                             </ul>
                         </li>
                         <li>
