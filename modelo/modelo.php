@@ -102,6 +102,15 @@
 			return $resul;
 		}
 
+		function consuAutos(){
+			$sql = "SELECT * FROM autos";
+			$resAutos = mysqli_query($this->conn, $sql);
+			if (!$resAutos) {
+				$error = 'MySQL Error: ' . mysqli_connect_error();
+			}
+			return $resAutos;
+		}
+
 		function validaUsuario ($params) {
 			$error = "";
 			$valor = "";

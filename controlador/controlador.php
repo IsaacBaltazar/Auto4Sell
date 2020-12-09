@@ -8,6 +8,27 @@
 		return $MySQL;
 	}
 
+	function autos() {
+		$MySQL = instancia();
+		$result = $MySQL->consuAutos();
+		return $result;
+	}
+
+	function a_Autos(){
+		$datos = autos();
+		$tblmain = "";
+		foreach ($datos as $filas) {
+			$tblmain .= "<tr class='text-center'>\n";
+			$tblmain .= "<td>". $filas['autos'] . "</td>\n";
+			$tblmain .= "<td>". $filas['modelo'] . "</td>\n";
+			$tblmain .= "<td>". $filas['bandera'] . "</td>\n";
+			$tblmain .= "<tr class='text-center'><a>Modificar</a> \n";
+			$tblmain .= "<tr class='text-center'><a>Eliminar</a> \n";
+			$tblmain .= "</tr>";
+		}
+		return $tblmain;
+	}
+
 	function perfil($id){
 		$MySQL = instancia();
 		$query = $MySQL->datosPerfil($id);
