@@ -96,13 +96,13 @@
                         <li>
                             <span class="opener">Categorias</span>
                             <ul>
-                                <li><a href="autos.php">Autos de importacion</a></li>
-                                <li><a href="#">Deportivos</a></li>
+                                <li><a href="autosReg.php">Autos de importacion</a></li>
+                                <!--<li><a href="#">Deportivos</a></li>
                                 <li><a href="#">Ultimos modelos</a></li>
                                 <li><a href="#">Suburbanos</a></li>
                                 <li><a href="#">Clasicos con estilo</a></li>
                                 <li><a href="#">Compactos</a></li>
-                                <li><a href="autosReg.php">Autos registrados</a></li>
+                                <li><a href="autosReg.php">Autos registrados</a></li>-->
                             </ul>
                         </li>
                         <li>

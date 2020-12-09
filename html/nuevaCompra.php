@@ -66,7 +66,7 @@
                             </select>
                             <!--<input type="text" placeholder="Disponible" name="txtCliente" required/><br>-->
                             <br>
-                            <input type="submit" value="Registrar Auto" />
+                            <input type="submit" value="Registrar compra" />
                             
                         </div>
                     </div>
