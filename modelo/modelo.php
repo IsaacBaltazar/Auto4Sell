@@ -111,6 +111,15 @@
 			return $resAutos;
 		}
 
+		function cosuClientes(){
+			$sql = "SELECT * FROM usuarios";
+			$resCliente = mysqli_query($this->conn, $sql);
+			if(!$resCliente){
+				$error = 'MySQL Error: ' . mysqli_connect_error();
+			}
+			return $resCliente;
+		}
+
 		function validaUsuario ($params) {
 			$error = "";
 			$valor = "";

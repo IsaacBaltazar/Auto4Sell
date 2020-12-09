@@ -29,6 +29,19 @@
 		return $tblmain;
 	}
 
+	function obtenerClientes(){
+		$MySQL = instancia();
+		$datos = $MySQL->cosuClientes();
+
+		$clientes = "";
+		foreach ($datos as $filas){
+			$clientes .= "<option value='".$filas['clienteId']."'>".$filas['nombre']."</option>\n";
+		}
+		return $clientes;
+
+
+	}
+
 	function perfil($id){
 		$MySQL = instancia();
 		$query = $MySQL->datosPerfil($id);
