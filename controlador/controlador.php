@@ -35,7 +35,7 @@
 
 		$clientes = "";
 		foreach ($datos as $filas){
-			$clientes .= "<option value='".$filas['clienteId']."'>".$filas['nombre']."</option>\n";
+			$clientes .= "<option value='".$filas['idUsuario']."'>".$filas['nombre']."</option>\n";
 		}
 		return $clientes;
 
