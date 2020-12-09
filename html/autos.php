@@ -14,7 +14,7 @@
 
 ?>
 
-
+<!DOCTYPE HTML>
 <html>
 
 <head>
@@ -22,6 +22,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/estiloLogin.css" />
 </head>
 
 <body class="is-preload">
@@ -35,9 +36,9 @@
 
                 <!-- Header -->
                 <header id="header">
-                    <a href="index.html" class="logo"><strong>Auto4Sell</strong></a>
+                    <a href="../index.html" class="logo"><strong>Auto4Sell</strong></a>
                     <ul class="icons">
-                        <li><a href="../controlador/conexión.php" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="/controlador/conexión.php" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
                         <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
                         <li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
                         <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
@@ -45,59 +46,35 @@
                     </ul>
                 </header>
 
-                <!-- Banner -->
-                <section id="banner">
-                    <div class="content">
-                        <header>
-                            <h1>Buen día <br/> <?php echo $nombreU; ?> <strong>Bienvenido a</strong><br /> Auto4Sell</h1>
-                            <p>Su sitio de compra-venta de autos</p>
-                        </header>
-                        <p>Este mensaje sólo se puede ver si accediste como usuario.</p>
-                        <ul class="actions">
-                            <!--<li><a href="html/registroUsuario.html" class="button big">Registrarse</a></li>-->
-                        </ul>
+                <!-- Formulario -->
+                <form action="../controlador/guardarUsuario.php" method="POST">
+                    <link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+                    <div class="login">
+                        <div class="login-header">
+                            <h2>Registrar vehículo</h2>
+                        </div>
+                        <div class="login-form">
+                            <h3>Modelo:</h3>
+                            <input type="text" placeholder="Modelo" name="txtMod" required/><br>
+                            <h3>Año:</h3>
+                            <input type="text" placeholder="Año" name="txtAño" required/><br>
+                            <h3>Disponible:</h3>
+                            <input type="text" placeholder="Disponible" name="txtDisp" required/><br>
+                            <br>
+                            <input type="submit" value="Registrar Auto" />
+                            <br>
+                            <a class="sign-up">Sign Up!</a>
+                            <br>
+                            <h6 class="no-access">Can't access your account?</h6>
+                        </div>
                     </div>
-                    <span class="image object">
-										<img src="../images/imgPrincipal.jpg" alt="" />
-									</span>
-                </section>
+                </form>
 
-                <!-- Section -->
-                <section>
-                    <header class="major">
-                        <h2>Te ofrecemos</h2>
-                    </header>
-                    <div class="features">
-                        <article>
-                            <span class="icon fa-gem"></span>
-                            <div class="content">
-                                <h3>La mejor calidad en autos</h3>
-                                <p>Queremos ofrecerte los autos en mejores condiciones y con los mejores cuidados. Para ello tenemos a los mejores técnicos y mecánicos.</p>
-                            </div>
-                        </article>
-                        <article>
-                            <span class="icon solid fa-paper-plane"></span>
-                            <div class="content">
-                                <h3>Autos importados</h3>
-                                <p>Además de contar con un gran catálogo de autos nacionales, estamos en constante actualización para ofrecer lo mejor en el mercado global.</p>
-                            </div>
-                        </article>
-                        <article>
-                            <span class="icon solid fa-rocket"></span>
-                            <div class="content">
-                                <h3>Más que un auto</h3>
-                                <p>Sabemos que al elegir tu próximo vehículo no solo lo buscas por su utilidad, ayudamos a crear ese vinculo entre máquina y hombre</p>
-                            </div>
-                        </article>
-                        <article>
-                            <span class="icon solid fa-signal"></span>
-                            <div class="content">
-                                <h3>Somos los mejores</h3>
-                                <p>Nuestros clientes, promociones y prestigio hablan de la calidad y buen trato que tenemos para ti.</p>
-                            </div>
-                        </article>
-                    </div>
-                </section>
+
+
+
+
+
             </div>
         </div>
 
@@ -142,10 +119,6 @@
                         
                     </ul>
                 </nav>
-
-                
-
-                
 
                 <!-- Footer -->
                 <footer id="footer">
