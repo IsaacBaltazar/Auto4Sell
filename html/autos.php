@@ -47,7 +47,7 @@
                 </header>
 
                 <!-- Formulario -->
-                <form action="../controlador/guardarUsuario.php" method="POST">
+                <form action="../controlador/guardarAuto.php" method="POST">
                     <link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
                     <div class="login">
                         <div class="login-header">
@@ -62,10 +62,7 @@
                             <input type="text" placeholder="Disponible" name="txtDisp" required/><br>
                             <br>
                             <input type="submit" value="Registrar Auto" />
-                            <br>
-                            <a class="sign-up">Sign Up!</a>
-                            <br>
-                            <h6 class="no-access">Can't access your account?</h6>
+                            
                         </div>
                     </div>
                 </form>

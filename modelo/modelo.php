@@ -71,6 +71,37 @@
 			return $resul;
 		}
 
+		function agregaAuto ($params){
+			$error = "";
+			$valor = "";
+			$modelo=$params["model"];
+			$añoA=$params["año"];
+			$disP=$params["dispo"];
+			
+
+
+			
+			$sqlValidar = "SELECT * FROM autos WHERE modelo = '".$modelo."' ";
+			$resultado = mysqli_query($this->conn, $sqlValidar);
+			if(mysqli_num_rows($resultado) !=0)  {
+				$error ="d";
+			}else{
+			
+			$query = "INSERT INTO  `autos` (`modelo`, `año`, `bandera`)";
+			$query .= " VALUES ('".$modelo."', '".$añoA."', '".$disP."');";
+	
+				if(!empty( $modelo ) && !empty( $añoA ) && !empty( $disP ) ){
+					if(!$this->conn->query($query)){
+						$error = 'Ocurrio un error ejecutando el query ['. $this->conn->error .']';
+					}
+					$valor = $this->conn->affected_rows;
+				}
+			}
+			$resul[] = $valor;
+			$resul[] = $error;
+			return $resul;
+		}
+
 		function validaUsuario ($params) {
 			$error = "";
 			$valor = "";

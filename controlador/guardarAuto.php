@@ -31,8 +31,8 @@
 
         
     } else {
-        echo "<script>alert('Su usuario fue registrado exitosamente')
-             window.location.href='../html/login.html'
+        echo "<script>alert('El auto fue registrado exitosamente')
+             window.location.href='../html/autos.php'
              </script>";
 
     }
